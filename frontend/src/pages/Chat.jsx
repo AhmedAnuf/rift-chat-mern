@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import { useEffect, useState } from "react";
 import apiURL from "../../utils";
 
-const ENDPOINT = `http://localhost:5000`;
+const ENDPOINT = apiURL;
 
 const Chat = () => {
   const [selectedGroup, setSelectedGroup] = useState(null);
