@@ -52,56 +52,62 @@ const UsersList = ({ users }) => {
       {/* Users List */}
       <Box flex="1" overflowY="auto" p={4}>
         <VStack align="stretch" spacing={3}>
-          {users.map((user) => (
-            <Box key={user._id}>
-              <Tooltip label={`${user.username} is online`} placement="left">
-                <Flex
-                  p={3}
-                  bg="white"
-                  borderRadius="lg"
-                  shadow="sm"
-                  align="center"
-                  borderWidth="1px"
-                  borderColor="gray.100"
-                >
-                  <Avatar
-                    size="sm"
-                    name={user.username}
-                    bg="blue.500"
-                    color="white"
-                    mr={3}
-                  />
-                  <Box flex="1">
-                    <Text
-                      fontSize="sm"
-                      fontWeight="medium"
-                      color="gray.700"
-                      noOfLines={1}
-                    >
-                      {user.username}
-                    </Text>
-                  </Box>
+          {Array.isArray(users) && users.length > 0 ? (
+            users.map((user, index) => (
+              <Box key={user._id || index}>
+                <Tooltip label={`${user.username} is online`} placement="left">
                   <Flex
+                    p={3}
+                    bg="white"
+                    borderRadius="lg"
+                    shadow="sm"
                     align="center"
-                    bg="green.50"
-                    px={2}
-                    py={1}
-                    borderRadius="full"
+                    borderWidth="1px"
+                    borderColor="gray.100"
                   >
-                    <Icon
-                      as={FiCircle}
-                      color="green.400"
-                      fontSize="8px"
-                      mr={1}
+                    <Avatar
+                      size="sm"
+                      name={user.username}
+                      bg="blue.500"
+                      color="white"
+                      mr={3}
                     />
-                    <Text fontSize="xs" color="green.600" fontWeight="medium">
-                      online
-                    </Text>
+                    <Box flex="1">
+                      <Text
+                        fontSize="sm"
+                        fontWeight="medium"
+                        color="gray.700"
+                        noOfLines={1}
+                      >
+                        {user.username}
+                      </Text>
+                    </Box>
+                    <Flex
+                      align="center"
+                      bg="green.50"
+                      px={2}
+                      py={1}
+                      borderRadius="full"
+                    >
+                      <Icon
+                        as={FiCircle}
+                        color="green.400"
+                        fontSize="8px"
+                        mr={1}
+                      />
+                      <Text fontSize="xs" color="green.600" fontWeight="medium">
+                        online
+                      </Text>
+                    </Flex>
                   </Flex>
-                </Flex>
-              </Tooltip>
-            </Box>
-          ))}
+                </Tooltip>
+              </Box>
+            ))
+          ) : (
+            <Text textAlign="center" color="gray.500">
+              No users online
+            </Text>
+          )}
         </VStack>
       </Box>
     </Box>
