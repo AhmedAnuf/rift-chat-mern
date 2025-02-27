@@ -1,2 +1,2 @@
-const apiURL = "http://localhost:5000";
+const apiURL = "https://rift-chat-mern-backend.onrender.com";
 export default apiURL;
