@@ -34,12 +34,12 @@ const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
 
   const currentUser = JSON.parse(localStorage.getItem("userInfo") || {});
 
-  useEffect(() => {
+useEffect(() => {
     if (selectedGroup && socket) {
       //fetch messages
       fetchMessages();
       socket.emit("join room", selectedGroup?._id);
-      socket.on("message receive", (newMessage) => {
+      socket.on("message received", (newMessage) => {
         setMessages((prev) => [...prev, newMessage]);
       });
 
@@ -68,10 +68,6 @@ const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
           position: "top-right",
         });
       });
-
-      if (messagesEndRef.current) {
-        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-      }
 
       socket.on("user typing", ({ username }) => {
         setTypingUsers((prev) => new Set(prev).add(username));
