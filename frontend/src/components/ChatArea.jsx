@@ -37,7 +37,7 @@ const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
       //fetch messages
       fetchMessages();
       socket.emit("join room", selectedGroup?._id);
-      socket.on("message receive", (newMessage) => {
+      socket.on("message received", (newMessage) => {
         setMessages((prev) => [...prev, newMessage]);
       });
 
@@ -66,10 +66,6 @@ const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
           position: "top-right",
         });
       });
-
-      if (messagesEndRef.current) {
-        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-      }
 
       socket.on("user typing", ({ username }) => {
         setTypingUsers((prev) => new Set(prev).add(username));
@@ -196,7 +192,7 @@ const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
           borderRadius="lg"
           gap={2}
         >
-          {/* current user (You) -left side */}
+          {/* current user (You) -right side */}
           {username === currentUser?.username ? (
             <>
               <Avatar size="xs" name={username} />
@@ -332,6 +328,7 @@ const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
               px={6}
               py={4}
               position="relative"
+              ref={messagesEndRef}
               sx={{
                 "&::-webkit-scrollbar": {
                   width: "8px",

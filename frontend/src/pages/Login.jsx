@@ -93,7 +93,7 @@ const Login = () => {
               Welcome Back
             </Text>
             <Text fontSize="lg" maxW="400px">
-              Stay connected with friends and family through instant messaging
+              Collaborate seamlessly with your team through real-time messaging
             </Text>
           </Box>
         </Box>

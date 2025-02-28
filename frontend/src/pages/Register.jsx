@@ -55,7 +55,7 @@ const Register = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      bgGradient="linear(to-r, indigo.500, purple.500)"
+      bgGradient="linear(to-r, purple.600, teal.600)"
     >
       <Box
         display="flex"
@@ -92,7 +92,7 @@ const Register = () => {
               Join Our Chat Community
             </Text>
             <Text fontSize="lg" maxW="400px">
-              Connect with friends and start chatting instantly
+              Connect with your team and start collaborating instantly
             </Text>
           </Box>
         </Box>

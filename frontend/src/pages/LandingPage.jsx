@@ -12,6 +12,7 @@ import {
   VStack,
   HStack,
   Badge,
+  Image,
   Input,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
@@ -108,7 +109,7 @@ export default function LandingPage() {
   return (
     <Box bg={useColorModeValue("gray.50", "gray.900")} minH="100vh">
       {/* Hero Section */}
-      <Container maxW="7xl" pt={10}>
+      <Container maxW="7xl" pt={8}>
         <Stack
           align="center"
           spacing={{ base: 8, md: 10 }}
@@ -135,18 +136,19 @@ export default function LandingPage() {
                   zIndex: -1,
                 }}
               >
-                MasynTech
+                RIFT
               </Text>
-              <br />
               <Text as="span" color="blue.400">
-                Chat App
+                .Chat
               </Text>
             </Heading>
             <Text color="gray.500" fontSize="xl">
-              Experience seamless group communication with our modern chat
-              platform. Connect with teams, friends, and communities in
-              real-time with advanced features like typing indicators and online
-              status.
+              Rift.Chat – The ultimate communication hub for project teams.
+              Designed for seamless collaboration, Rift.Chat keeps your team
+              connected with real-time messaging, typing indicators, and smart
+              notifications. Whether you're brainstorming, sharing updates, or
+              tracking project progress, Rift.Chat ensures smooth and efficient
+              communication, keeping everyone on the same page.
             </Text>
             <Stack
               spacing={{ base: 4, sm: 6 }}
@@ -216,7 +218,7 @@ export default function LandingPage() {
                 <HStack justify="space-between">
                   <HStack>
                     <Icon as={FiUsers} />
-                    <Text fontWeight="bold">Team MasynTech</Text>
+                    <Text fontWeight="bold">Team Rift</Text>
                   </HStack>
                   <HStack spacing={4}>
                     <Badge colorScheme="green" variant="solid">
@@ -236,13 +238,13 @@ export default function LandingPage() {
                 overflowY="auto"
               >
                 <ChatMessage
-                  sender="Sarah Chen"
+                  sender="John Booker"
                   message="Hey team! Just pushed the new updates to staging."
                   time="10:30 AM"
                   isUser={false}
                 />
                 <ChatMessage
-                  sender="Alex Thompson"
+                  sender="Alex Connor"
                   message="Great work! The new features look amazing 🚀"
                   time="10:31 AM"
                   isUser={false}
@@ -253,9 +255,10 @@ export default function LandingPage() {
                   time="10:32 AM"
                   isUser={true}
                 />
+
                 <Box w="100%" textAlign="center">
                   <Badge colorScheme="gray" fontSize="xs">
-                    Sarah is typing...
+                    John is typing...
                   </Badge>
                 </Box>
               </VStack>
