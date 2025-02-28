@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
+import apiURL from "../../utils";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -27,7 +28,7 @@ const Register = () => {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/users/register`,
+        `${apiURL}/api/users/register`,
         {
           email,
           password,

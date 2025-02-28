@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import { FiLogOut, FiPlus, FiUsers } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import apiURL from "../../utils";
 
 const Sidebar = ({ setSelectedGroup }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -50,7 +51,7 @@ const Sidebar = ({ setSelectedGroup }) => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("userInfo") || {});
       const token = userInfo.token;
-      const { data } = await axios.get(`http://localhost:5000/api/groups`, {
+      const { data } = await axios.get(`${apiURL}/api/groups`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -75,7 +76,7 @@ const Sidebar = ({ setSelectedGroup }) => {
       const userInfo = JSON.parse(localStorage.getItem("userInfo") || {});
       const token = userInfo.token;
       await axios.post(
-        `http://localhost:5000/api/groups`,
+        `${apiURL}/api/groups`,
         {
           name: newGroupName,
           description: newGroupDescription,
@@ -117,7 +118,7 @@ const Sidebar = ({ setSelectedGroup }) => {
       const userInfo = JSON.parse(localStorage.getItem("userInfo") || {});
       const token = userInfo.token;
       await axios.post(
-        `http://localhost:5000/api/groups/${groupId}/join`,
+        `${apiURL}/api/groups/${groupId}/join`,
         {},
         {
           headers: {
@@ -150,7 +151,7 @@ const Sidebar = ({ setSelectedGroup }) => {
       const userInfo = JSON.parse(localStorage.getItem("userInfo") || {});
       const token = userInfo.token;
       await axios.post(
-        `http://localhost:5000/api/groups/${groupId}/leave`,
+        `${apiURL}/api/groups/${groupId}/leave`,
         {},
         {
           headers: {
