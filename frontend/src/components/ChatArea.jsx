@@ -19,7 +19,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import apiURL from "../../utils";
 
-
 const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
   console.log(selectedGroup?._id);
 
@@ -34,7 +33,7 @@ const ChatArea = ({ selectedGroup, socket, setSelectedGroup }) => {
 
   const currentUser = JSON.parse(localStorage.getItem("userInfo") || {});
 
-useEffect(() => {
+  useEffect(() => {
     if (selectedGroup && socket) {
       //fetch messages
       fetchMessages();
